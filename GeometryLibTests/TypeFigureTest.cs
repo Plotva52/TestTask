@@ -14,7 +14,7 @@ namespace GeometryLibTests
             double b = 2;
             double c = 3;
             int expected = 0;
-            int actual = TypeFigure.TypeTriangle(a, b, c);
+            int actual = (int)TypeFigure.GetTypeTriangle(a, b, c);
             Assert.AreEqual(expected, actual);
         }
 
@@ -25,7 +25,7 @@ namespace GeometryLibTests
             double b = 2;
             double c = 6;
             int expected = 0;
-            int actual = TypeFigure.TypeTriangle(a, b, c);
+            int actual = (int)TypeFigure.GetTypeTriangle(a, b, c);
             Assert.AreEqual(expected, actual);
         }
 
@@ -36,7 +36,7 @@ namespace GeometryLibTests
             double b = 5;
             double c = 3;
             int expected = 0;
-            int actual = TypeFigure.TypeTriangle(a, b, c);
+            int actual = (int)TypeFigure.GetTypeTriangle(a, b, c);
             Assert.AreEqual(expected, actual);
         }
 
@@ -47,7 +47,7 @@ namespace GeometryLibTests
             double b = 4;
             double c = 6;
             int expected = 2;
-            int actual = TypeFigure.TypeTriangle(a, b, c);
+            int actual = (int)TypeFigure.GetTypeTriangle(a, b, c);
             Assert.AreEqual(expected, actual);
         }
 
@@ -58,7 +58,7 @@ namespace GeometryLibTests
             double b = 4;
             double c = 4;
             int expected = 1;
-            int actual = TypeFigure.TypeTriangle(a, b, c);
+            int actual = (int)TypeFigure.GetTypeTriangle(a, b, c);
             Assert.AreEqual(expected, actual);
         }
 
@@ -69,7 +69,18 @@ namespace GeometryLibTests
             double b = 5;
             double c = 3;
             int expected = 3;
-            int actual = TypeFigure.TypeTriangle(a, b, c);
+            int actual = (int)TypeFigure.GetTypeTriangle(a, b, c);
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void TypeTriangle_TestFraction()
+        {
+            double a = 0.004;
+            double b = 0.031;
+            double c = 0.034;
+            int expected = 2;
+            int actual = (int)TypeFigure.GetTypeTriangle(a, b, c);
             Assert.AreEqual(expected, actual);
         }
     }

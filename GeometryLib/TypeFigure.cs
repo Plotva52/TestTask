@@ -8,11 +8,8 @@ namespace GeometryLib
         /// Выводит тип треугольника
         /// 0 не существует, 1 остроугольный, 2 тупоугольный, 3 прямоугольный
         /// </summary>
-        /// <param name="a"></param>
-        /// <param name="b"></param>
-        /// <param name="c"></param>
-        /// <returns></returns>
-        public static int TypeTriangle(double a, double b, double c)
+        /// <returns>enum typeTriangle</returns>
+        public static typeTriangle GetTypeTriangle(double a, double b, double c)
         {
 
             //Проверка на существование            
@@ -23,7 +20,7 @@ namespace GeometryLib
 
             //Найдем наибольшу сторону
             double x;
-            if (a>b)
+            if (a > b)
             {
                 if (a > c)
                 {
@@ -44,20 +41,27 @@ namespace GeometryLib
 
 
             double diff = c * c - (a * a + b * b);
-            if ((c >= a + b) || (c <= a - b))
+            if (c >= a + b)
                 return 0;
 
             if (diff < 0)
             {
-                return 1;//остроугольный
+                return typeTriangle.acute_angled;//Остроугольный
             }
             else
             {
                 if (diff > 0)
-                    return 2;//Тупоугольный
+                    return typeTriangle.obtuse;//Тупоугольный
                 else
-                    return 3;//Прямоугольный
-            }       
-        }           
+                    return typeTriangle.rectangular;//Прямоугольный
+            }
+        }
+
+        public enum typeTriangle
+        {
+            acute_angled = 1,
+            obtuse = 2,
+            rectangular = 3
+        }
     }
 }
